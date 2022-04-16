@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 
-const Product = () => {
+const Products = () => {
   const [data, setdata] = useState([]);
   const [filter, setfilter] = useState(data);
   const [loading, setloading] = useState(false);
@@ -87,9 +87,9 @@ const Product = () => {
 
   return (
     <div>
-      <div className="container my-5 py-5">
+      <div className="container my-3 py-5">
         <div className="row">
-          <div className="col-12 mb-5">
+          <div className="col-12 mb-3">
             <h1 className="display-6 fw-bolder text-center">Latest Product</h1>
             <hr />
           </div>
@@ -102,4 +102,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;

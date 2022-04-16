@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./Product";
+import Products from "./Products";
 
 const Hero = () => {
   return (
@@ -20,7 +20,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <Product/>
+      <Products/>
     </div>
   );
 };
