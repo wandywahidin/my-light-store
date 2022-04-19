@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useParams} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { addCart } from '../redux/action';
+import {Link} from 'react-router-dom'
+import {useParams} from 'react-router'
 import Skeleton from 'react-loading-skeleton';
 
 const Product = () => {
@@ -7,6 +10,12 @@ const Product = () => {
     const {id} = useParams();
     const [product, setproduct] = useState([]);
     const [loading, setloading] = useState(false);
+
+    const dispatch = useDispatch();
+    const addProduct = (product) => {
+        dispatch(addCart(product));
+        console.log('succes add cart');
+    }
 
     useEffect(() => {
         const getProduct = async () => {
@@ -16,7 +25,8 @@ const Product = () => {
             setloading(false);
         }
         getProduct() 
-    })
+        console.log(loading);
+    },[])
 
     const Loading = () => {
         return (
@@ -55,7 +65,7 @@ const Product = () => {
                     </p>
                     <h3 className='display-6 fw-bold my-4'>$ {product.price}</h3>
                     <p className="lead">{product.description}</p>
-                    <button className="btn btn-outline-dark px-4 py-2">Add to Cart</button>
+                    <button className="btn btn-outline-dark px-4 py-2" onClick={()=>addProduct(product)} >Add to Cart</button>
                     <Link to='/cart' className='btn btn-dark ms-3 px-3 py-2'>Go to Cart</Link>
                 </div>
             </>
@@ -66,7 +76,7 @@ const Product = () => {
     <>
     <div className="container py-4">
         <div className="row py-4">
-            { loading ? <Loading/> : <ShowProduct/>}
+            {loading ? <Loading/> : <ShowProduct/>}
         </div>
     </div>
     </>

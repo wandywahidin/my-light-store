@@ -16,7 +16,6 @@ const Products = () => {
         setdata(await response.clone().json());
         setfilter(await response.json());
         setloading(false);
-        console.log(filter);
       }
 
       return () => {
