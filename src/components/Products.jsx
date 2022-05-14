@@ -28,18 +28,18 @@ const Products = () => {
   const Loading = () => {
     return (
       <>
-      <div className="col-md-3">
-        <Skeleton height={350}/>
-      </div>
-      <div className="col-md-3">
-        <Skeleton height={350}/>
-      </div>
-      <div className="col-md-3">
-        <Skeleton height={350}/>
-      </div>
-      <div className="col-md-3">
-        <Skeleton height={350}/>
-      </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={350} />
+        </div>
       </>
     );
   };
@@ -47,37 +47,75 @@ const Products = () => {
   const filterProduct = (cat) => {
     const updateList = data.filter((x) => x.category === cat);
     setfilter(updateList);
-  }
+  };
 
   const ShowProduct = () => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2" onClick={() => setfilter(data)}>All</button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>
-            Women's Clothing
-          </button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewelery</button>
-          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronic</button>
+        <div className="row">
+          <div className="buttons d-flex justify-content-center mb-3 pb-5 col-sm-12 flex-wrap">
+            <button
+              className="btn btn-outline-dark me-2 mt-2"
+              onClick={() => setfilter(data)}
+            >
+              All
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 mt-2"
+              onClick={() => filterProduct("men's clothing")}
+            >
+              Men's Clothing
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 mt-2"
+              onClick={() => filterProduct("women's clothing")}
+            >
+              Women's Clothing
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 mt-2"
+              onClick={() => filterProduct("jewelery")}
+            >
+              Jewelery
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 mt-2"
+              onClick={() => filterProduct("electronics")}
+            >
+              Electronic
+            </button>
+          </div>
         </div>
+
         {filter.map((product) => {
           return (
             <>
-              <div className="col-md-3 mb-4">
-                <div className="card h-100 text-center p-4" key={product.id}>
-                  <img src={product.image} className="card-img-top" alt={product.title} height="250px" />
-                  <div className="card-body">
-                    <h5 className="card-title mb-0">{product.title.substring(0,12)}...</h5>
-                    <p className="card-text lead fw-bold">
-                      ${product.price}
-                    </p>
-                    <Link to={`/products/${product.id}`} className="btn btn-outline-dark">
-                      Buy Now
-                    </Link>
-                  </div>
+            <div className="col-md-3 mb-4 ">
+              <div
+                className="card h-100 text-center p-4"
+                key={product.id}>
+                <img
+                  src={product.image}
+                  className="card-img-top"
+                  alt={product.title}
+                  height="250px"
+                />
+                <div className="card-body">
+                  <h5 className="card-title mb-0">
+                    {product.title.substring(0, 12)}...
+                  </h5>
+                  <p className="card-text lead fw-bold">${product.price}</p>
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="btn btn-outline-dark"
+                  >
+                    Buy Now
+                  </Link>
+
                 </div>
               </div>
+            </div>
+              
             </>
           );
         })}

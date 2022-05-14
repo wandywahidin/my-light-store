@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const state = useSelector((state) => state.handleCart)
+  const state = useSelector((state) => state.handleCart);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
         <div className="container">
           <Link className="navbar-brand fw-bold fs-4" to="/">
             AHO STORE
-          </Link >
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,34 +27,37 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </Link >
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/products">
                   Product
-                </Link >
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">
                   About
-                </Link >
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">
                   Contact
-                </Link >
+                </Link>
               </li>
             </ul>
             <div className="buttons">
-                <Link to="/login" className="btn btn-outline-dark">
-                    <i className="fa fa-sign-in me-1"> Login</i>
-                </Link >
-                <Link to="/register" className="btn btn-outline-dark ms-2">
-                    <i className="fa fa-user-plus me-1"> Register</i>
-                </Link >
-                <Link to="cart" className="btn btn-outline-dark ms-2">
-                    <i className="fa fa-shopping-cart me-1"> Cart ({state.length})</i>
-                </Link >
+              <Link to="/login" className="btn btn-outline-dark">
+                <i className="fa fa-sign-in me-1"> Login</i>
+              </Link>
+              <Link to="/register" className="btn btn-outline-dark ms-2">
+                <i className="fa fa-user-plus me-1"> Register</i>
+              </Link>
+              <Link to="cart" className="btn btn-outline-dark ms-2">
+                <i className="fa fa-shopping-cart me-1">
+                  {" "}
+                  Cart ({state.length})
+                </i>
+              </Link>
             </div>
           </div>
         </div>

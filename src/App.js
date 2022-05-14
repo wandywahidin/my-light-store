@@ -7,11 +7,12 @@ import Product from './components/Product';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Login from './components/Login';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
-      <Navbar/>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<Hero/>}/>
         <Route path='/products' element={<Products/>}/>
@@ -20,6 +21,7 @@ function App() {
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/login' element={<Login/>}/>
       </Routes>
+      <Footer/>
     </>
   );
 }
